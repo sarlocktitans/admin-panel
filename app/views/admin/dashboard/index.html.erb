@@ -1,0 +1,39 @@
+<section class="content-header">
+  <h1>Dashboard</h1>
+  <ol class="breadcrumb">
+    <li><a href="#"> Home</a></li>
+    <li class="active">Dashboard</li>
+  </ol>
+</section>
+<section class="content">
+  <table >
+   	<thead>
+   		<tr>
+   			<th>Model Name</td>
+   			<th>Last Created</td>
+   			<th>Records</td>			
+   		</tr>
+   	</thead>
+   	<tbody>
+   	  <% @models.each do |m| %>
+        <tr>
+         	<td><%= m %></td>
+          <%if((Time.now.day - m.constantize.order('created_at DESC').first.created_at.day) > 0) %>
+            <td><%=Time.now.day - m.constantize.order('created_at DESC').first.created_at.day%> days ago</td>
+          <% elsif((Time.now.hour - m.constantize.order('created_at DESC').first.created_at.hour)>0) %>
+            <td><%=Time.now.hour - m.constantize.order('created_at DESC').first.created_at.hour%> hours ago</td>
+          <% else %>
+            <td><%= Time.now.min - m.constantize.order('created_at DESC').first.created_at.min %> minutes ago</td>
+          <% end %>
+          <td><%=m.constantize.all.count%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+        
+
+
+
+ 

@@ -1,0 +1,39 @@
+   <section class="content-header">
+  <h1>Dashboard</h1>
+  <ol class="breadcrumb">
+    <li><a href="#"> Home</a></li>
+    <li class="active">Dashboard</li>
+  </ol>
+</section>
+<section class="content">
+  <%= form_tag assosiate_path, method: :post do  %>
+	<div class="field">
+	  <%= label_tag 'Username' %><br />
+	  <%= text_field_tag :username, "", onkeyup: "userTyped('car','bus', this)"  %>
+	</div>
+
+	<div class="field">
+	  <%= check_box_tag :car,"1", false, disabled: true %>
+	  <%= label_tag :car %><br />
+	</div>
+
+	<div class="field">
+      <%= check_box_tag :bus, "1", false, disabled: true %>
+	  <%= label_tag :bus %><br />
+	</div>
+
+	<div class="submit">
+	  <%= submit_tag "search" %>
+	</div>
+
+  <% end %> 
+  <%if @cars %>
+    <%= render 'cars' %>
+  <%end%>
+  <%if @buses %>
+    <%= render 'bus' %>
+  <%end%>
+</section>        
+ 
+ 
+

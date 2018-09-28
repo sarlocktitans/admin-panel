@@ -1,0 +1,25 @@
+<div class="row">
+	    <div class="col-lg-12">
+		  <h3>User's car</h3>
+		  <table>
+		  	<thead>
+		  		<tr class="tablerow">
+		  			<th >Username</th>
+		  			<th >Car name</th>
+		  			<th >Price</th>
+		  		</tr>
+		  	</thead>
+		  	<tbody>
+		  	  
+		  		<% @cars.each do |car| %>
+		  		  <tr class="tablerow">
+		  		  	<td><%= car.user.name%></td>
+		  		  	<td><%= car.car_name%></td>
+		  		  	<td><%= car.price%></td>
+		  		  </tr>
+		  		<% end %>
+		  	
+		  	</tbody>
+		  </table>
+		</div>
+	  </div>

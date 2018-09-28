@@ -1,0 +1,25 @@
+<div class="row">
+	    <div class="col-lg-12">
+		   <h3>User's Bus</h3>
+		  <table cellpadding="10">
+		  	<thead>
+		  		<tr class="tablerow">
+		  			<th >Username</th>
+		  			<th >Bus name</th>
+		  			<th >Price</th>
+		  		</tr>
+		  	</thead>
+		  	<tbody>
+		  		<% @buses.each do |bus| %>
+		  		  <tr class="tablerow">
+		  		  	<td><%= bus.user.name%></td>
+		  		  	<td><%= bus.bus_name%></td>
+		  		  	<td><%= bus.price%></td>
+		  		  </tr>
+		  		<% end %>
+		  	  
+		  	</tbody>
+		  </table>
+		</div>
+	  </div>
+    </div>

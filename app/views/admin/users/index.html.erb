@@ -1,0 +1,27 @@
+<section class="content-header">
+  <span class="pull-right">
+    <%= link_to "New User", admin_new_user_path, class: "btn btn-primary btn-md"%>
+  </span>
+  <h1>Users </h1>
+  
+</section>
+<section class="content">
+<table>
+  <thead>
+    <tr>
+	  <th>Name</th>
+	  <th>Email Address</th>
+	  <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.each do |user|%>
+  	  <tr>
+  		<td><%=user.name%></td>
+  		<td><%=user.email%></td>
+  		<td><%=user.created_at.to_date%></td>
+  	  </tr>
+  	<% end %>
+  </tbody>
+</table>
+</section>

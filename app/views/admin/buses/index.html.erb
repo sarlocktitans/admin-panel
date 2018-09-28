@@ -1,0 +1,33 @@
+<section class="content-header">
+  <span class="pull-right">
+    <%= link_to "New Bus", admin_new_bus_path, class: "btn btn-primary btn-md"%>
+  </span>
+  <h1>Buses</h1>
+  
+</section>
+<section class="content">
+  <table>
+    <thead>
+      <tr>
+  	  <th>Name</th>
+  	  <th>Price</th>
+  	  <th>Manufacturer</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @buses.each do |bus|%>
+    	  <tr>
+    		<td><%=bus.bus_name%></td>
+    		<td><%=bus.price%></td>
+    		<td><%=bus.manufacturer%></td>
+        <td><%=bus.model%></td>
+        <td><%=bus.year%></td>
+        <td><%=bus.user.name%></td>
+    	  </tr>
+    	<% end %>
+    </tbody>
+  </table>
+</section>
