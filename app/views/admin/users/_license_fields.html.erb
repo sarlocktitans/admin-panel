@@ -1,0 +1,45 @@
+<div class='nested-fields'>
+    <div class="field">
+      <%= f.label :license_no %>
+      <%# if f.object %>
+        <%= f.number_field :license_no %>
+      <%# else %>  
+        <%#= f.number_field :license_no , onload: 'assignid(this)'%>
+      <%# end %>
+    </div>
+   
+    <div class="field">
+      <%= f.label :license_image %><br />
+      <% if f.object.license_image? %>
+        <div class="head">
+        <div class="file-div">
+          <%= f.file_field :license_image, onchange: "readURL(this)" %>
+        </div>
+        <div class="img-div">
+          <b class="preview">Preview  </b>
+          <%= image_tag(f.object.license_image_url, id: "img_prev", class: 'img_prev')  %>
+        </div> 
+        </div> 
+      <% else %>
+        <div class="head">
+          <div class="file-div">
+            <%= f.file_field :license_image, onchange: "readURL(this)" %>
+          </div>
+          <div class="img-div"> 
+            <b class="preview">Preview</b> 
+            <img id= <%="img_prev"%> src="#" alt="license image" class="img_prev" />
+          </div>  
+        </div>
+      <% end %>
+      
+      
+    </div>
+
+    <div class="field">
+      <%= f.label :rto_office %>
+      <%= f.text_field :rto_office %>
+    </div>
+    <%= link_to_remove_association  f do %>
+      Delete
+    <% end %>
+  </div>

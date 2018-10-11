@@ -1,0 +1,38 @@
+<section class="content-header">
+  <span class="pull-right">
+    <%= link_to "Back", admin_bus_path, class: "btn btn-primary btn-md"%>
+  </span>
+  <h1><%=@bus.bus_name.upcase%>'s Profile</h1>
+  
+</section>
+<section class="content">
+  <table>
+  	<thead>
+  	  <tr>
+  		<th>Name</th>
+  		<th>Model</th>
+      <th>Make</th>
+      <th>Price</th>
+      <th>Manufacturer</th>
+      <th>Registration Date</th>
+      <th>User</th>
+  		<th>Actions</th>
+  	  </tr>
+  	</thead>
+  	<tbody>
+  	  <tr>
+  	  	  <td><%=@bus.bus_name%></td>
+  	  	  <td><%=@bus.model%></td>
+          <td><%=@bus.make%></td>
+          <td><%=@bus.price%></td>
+          <td><%=@bus.manufacturer%></td>
+          <td><%=@bus.registration_date%></td>
+          <td><%=@bus.user.name%></td>
+  	  	  <td><%=link_to "Edit", "/admin/bus/edit/#{@bus.id}", class: 'btn btn-primary'%>
+  	  	  	<%=link_to 'Delete', "#", class: 'btn btn-primary'%>
+  	  	    
+          </td>
+  	  </tr>	
+  	</tbody>
+  </table>
+</section>

@@ -1,6 +1,6 @@
 <section class="content-header">
   <span class="pull-right">
-    <%= link_to "New Bus", admin_new_bus_path, class: "btn btn-primary btn-md"%>
+    <%= link_to "New Bus", admin_bus_new_path, class: "btn btn-primary btn-md"%>
   </span>
   <h1>Buses</h1>
   
@@ -26,6 +26,10 @@
         <td><%=bus.model%></td>
         <td><%=bus.year%></td>
         <td><%=bus.user.name%></td>
+        <td><%=link_to "Edit", "/admin/bus/edit/#{bus.id}", class: 'btn btn-primary'%>
+          <%=link_to "Show", "/admin/bus/edit/#{bus.id}", class: 'btn btn-primary'%>
+          <%=link_to "Delete", "#", class: 'btn btn-primary'%>
+        </td>
     	  </tr>
     	<% end %>
     </tbody>

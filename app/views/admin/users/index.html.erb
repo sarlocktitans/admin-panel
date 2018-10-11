@@ -1,6 +1,6 @@
 <section class="content-header">
   <span class="pull-right">
-    <%= link_to "New User", admin_new_user_path, class: "btn btn-primary btn-md"%>
+    <%= link_to "New User", admin_user_new_path, class: "btn btn-primary btn-md"%>
   </span>
   <h1>Users </h1>
   
@@ -12,6 +12,7 @@
 	  <th>Name</th>
 	  <th>Email Address</th>
 	  <th>Created At</th>
+    <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,13 @@
   		<td><%=user.name%></td>
   		<td><%=user.email%></td>
   		<td><%=user.created_at.to_date%></td>
+      <td><%= link_to "show", "/admin/users/show/#{user.id}", class: "btn btn-primary" %>
+        <% if(current_user.id == user.id) %>
+          <%= link_to "edit", "/admin/user/edit/#{user.id}", class: "btn btn-primary" %>
+          <%= link_to "delete", '#', class: "btn btn-primary" %>
+        <% end %>
+      </td>
+
   	  </tr>
   	<% end %>
   </tbody>

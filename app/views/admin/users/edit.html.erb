@@ -1,0 +1,56 @@
+<section class="content-header">
+  <span class="pull-right">
+    <%= link_to "Back", admin_user_path, class: "btn btn-primary btn-md"%>
+  </span>
+  <h1>Edit User</h1>
+  
+</section>
+<section class="content">
+  <%= form_for(@user, url: "/admin/user/edit/#{@user.id}") do |f| %>
+ 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><i>(leave blank if you don't want to change it)</i>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <h3>License</h3>
+  <div id="licenses">
+    <%= f.fields_for :licenses do |license| %>
+
+      <%= render 'license_fields', f: license %>
+    <% end%>
+    <div class="links">
+      <%=link_to_add_association 'Add license', f, :licenses, class: 'btn btn-primary btn-sm' %>
+      <br />
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %><i>(we need your current password to confirm your changes)</i>
+    <br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save changes" %>
+  </div>
+<% end %>
+</section>

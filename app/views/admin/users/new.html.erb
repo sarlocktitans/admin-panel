@@ -1,12 +1,12 @@
 <section class="content-header">
   <span class="pull-right">
-    <%= link_to "Back", admin_bus_path, class: "btn btn-primary btn-md"%>
+    <%= link_to "Back", admin_user_path, class: "btn btn-primary btn-md"%>
   </span>
   <h1>New Bus</h1>
   
 </section>
 <section class="content">
-  <%= form_for(@user, url: admin_new_user_path) do |f| %>
+  <%= form_for(@user, url: admin_user_new_path) do |f| %>
  
   <div class="field">
     <%= f.label :name %><br />
@@ -18,6 +18,17 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <h3>License</h3>
+  <div id="licenses">
+    <%= f.fields_for :licenses do |license| %>
+      <%= render 'license_fields', f: license %>
+    <% end%>
+    <div class="links">
+      <%=link_to_add_association 'Add license', f, :licenses, class: 'btn btn-primary btn-sm' %>
+      <br />
+    </div>
+  </div>
+  
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

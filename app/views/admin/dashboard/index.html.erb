@@ -18,13 +18,13 @@
    	  <% @models.each do |m| %>
         <tr>
          	<td><%= m %></td>
-          <%if((Time.now.day - m.constantize.order('created_at DESC').first.created_at.day) > 0) %>
-            <td><%=Time.now.day - m.constantize.order('created_at DESC').first.created_at.day%> days ago</td>
-          <% elsif((Time.now.hour - m.constantize.order('created_at DESC').first.created_at.hour)>0) %>
-            <td><%=Time.now.hour - m.constantize.order('created_at DESC').first.created_at.hour%> hours ago</td>
+          <%if((m.constantize.order('created_at DESC').first.created_at.day - Time.now.day) > 0) %>
+            <td><%= m.constantize.order('created_at DESC').first.created_at.day - Time.now.day %> days ago</td>
+          <% elsif(( m.constantize.order('created_at DESC').first.created_at.hour - Time.now.hour )>0) %>
+            <td><%= m.constantize.order('created_at DESC').first.created_at.hour - Time.now.hour%> hours ago</td>
           <% else %>
-            <td><%= Time.now.min - m.constantize.order('created_at DESC').first.created_at.min %> minutes ago</td>
-          <% end %>
+            <td><%= m.constantize.order('created_at DESC').first.created_at.min - Time.now.min %> minutes ago</td>
+          <% end %> 
           <td><%=m.constantize.all.count%></td>
         </tr>
       <% end %>

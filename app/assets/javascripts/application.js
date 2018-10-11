@@ -14,8 +14,28 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require cocoon
 //= require adminlte
 //= require twitter/bootstrap
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+// $('#div_id').html(" <%= render :partial => 'add_license' %>");
+function readURL(input) {
+	//console.log(input);
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {	
+    	//console.log(id);
+    	//console.log(input.parentElement.parentElement.children[1].children[1].id);
+    	
+        input.parentElement.parentElement.children[1].children[1].setAttribute('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+

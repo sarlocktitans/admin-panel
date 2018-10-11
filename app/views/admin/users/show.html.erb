@@ -1,0 +1,27 @@
+<section class="content-header">
+  <span class="pull-right">
+    <%= link_to "Edit User", "/admin/user/edit/#{@user.id}", class: "btn btn-primary"%>
+    <%= link_to "Delete", '#', class: "btn btn-primary" %>
+    <%= link_to "Back", admin_user_path, class: "btn btn-primary btn-md"%>
+  </span>
+  <h1><%=@user.name.upcase%>'s Profile</h1>
+  
+</section>
+<section class="content">
+  <span><b>Name : </b> <%=@user.name %> </span><br />
+  <span><b>Email : </b> <%=@user.email %> </span><br />
+  <h3>Licenses</h3> <hr>
+  <% if @user.licenses.present? %>
+    <% @user.licenses.each do |license| %>
+      <div class="license">
+        <span><b> License Image : </b> <%=image_tag (license.license_image.url), class: "img-responsive", width: '250px' %> </span><br />
+        <span><b> License No : </b> <%= license.license_no %> </span><br />
+        <span><b> Rto Office : </b> <%=license.rto_office %> </span><br />
+      </div>
+    <% end %>
+  <% else %>
+    <span>U don't have any license</span>
+  <% end %>
+
+
+</section>

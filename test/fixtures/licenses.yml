@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  license_no: 1
+  license_image: MyString
+  rto_office: MyString
+
+two:
+  license_no: 1
+  license_image: MyString
+  rto_office: MyString

@@ -21,10 +21,52 @@
 .logo:hover, .logo:focus{
 	text-decoration: none;
 }
-
+header{
+	padding: 0 ;
+}
+.content-login{
+	background-color: white;
+}
+.custom{
+	background-color: #ecf0f5;
+}
+.btn-custom{
+	padding: 10px !important;
+    margin-top: 4px;
+    margin-right: 10px;
+}
 .content-wrapper{
 	min-height: 543px;
 }
 table tr th, table tr td{
+	padding-right: 20px;
+}
+hr{
+	border-top: 1px solid;
+}
+
+.license{
+	
+	border: 1px solid black;
+	display: inline-table;
+	width: 250px;
+	height: 300px;
+
+}
+.img_prev{
+	width: 100px;
+	height: 50px;
+}
+.file-div, .img-div{
+	display: inline-block;
+}
+.img-div, .img-div2{
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+.img-div2{
+	
+}
+.preview{
 	padding-right: 20px;
 }
